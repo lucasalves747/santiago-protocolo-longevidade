@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Protocolo de Longevidade — Reset 45 Dias — Dr. Santiago Vecina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0A0A0F;color:#F5F5F0;font-family:'Inter',sans-serif;}
+  .gold{color:#D4A017;}
+  h1,h2,h3{font-family:'Playfair Display',serif;}
+  .urgency-bar{background:#1A0A00;border-bottom:1px solid rgba(212,160,23,0.3);padding:10px 24px;text-align:center;font-size:13px;color:#D4A017;font-weight:500;}
+  .hero{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;background-image:url('https://d2xsxph8kpxj0f.cloudfront.net/310419663029042428/dB6c66yqaRyD437rv6weov/hero_sales-Z2bc39XZ4TAtbZWmt8G4vH.webp');background-size:cover;background-position:center;opacity:0.25;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,0.2) 0%,rgba(10,10,15,0.9) 100%);}
+  .hero-content{position:relative;z-index:10;max-width:800px;margin:0 auto;padding:80px 24px;text-align:center;width:100%;}
+  .section-label{font-size:11px;letter-spacing:0.18em;color:#D4A017;font-weight:600;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:12px;}
+  .section-label-line{width:30px;height:1px;background:#D4A017;display:inline-block;}
+  .surface{background:#12121A;}
+  .container{max-width:900px;margin:0 auto;padding:80px 24px;}
+  .container-sm{max-width:800px;margin:0 auto;padding:80px 24px;}
+  .container-xs{max-width:700px;margin:0 auto;padding:80px 24px;}
+  .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .pain-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:24px;transition:border-color 0.2s;}
+  .pain-card:hover{border-color:rgba(212,160,23,0.4);}
+  .pillar{display:grid;grid-template-columns:80px 1fr;gap:28px;padding:32px;background:#12121A;border:1px solid rgba(255,255,255,0.06);border-radius:8px;align-items:start;transition:border-color 0.2s;margin-bottom:20px;}
+  .pillar:hover{border-color:rgba(212,160,23,0.3);}
+  .pillar-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:rgba(212,160,23,0.15);line-height:1;}
+  .tag{border:1px solid rgba(212,160,23,0.3);border-radius:3px;padding:3px 10px;font-size:11px;color:#D4A017;font-weight:500;display:inline-block;margin:3px;}
+  .what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+  .what-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:24px;}
+  .price-box{margin-bottom:32px;}
+  .price-old{font-size:14px;color:#8A8A9A;text-decoration:line-through;margin-bottom:4px;}
+  .price-new{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:#D4A017;line-height:1;}
+  .price-note{font-size:13px;color:#8A8A9A;margin-top:4px;}
+  .btn-cta{display:block;padding:20px 48px;background:linear-gradient(135deg,#D4A017,#F0C040);border:none;border-radius:6px;color:#0A0A0F;font-size:17px;font-weight:700;letter-spacing:0.04em;cursor:pointer;text-transform:uppercase;transition:transform 0.15s;width:100%;max-width:480px;margin:0 auto;font-family:'Inter',sans-serif;}
+  .btn-cta:hover{transform:scale(1.02);}
+  .btn-cta:active{transform:scale(0.97);}
+  .guarantee-box{max-width:700px;margin:0 auto;text-align:center;padding:48px 40px;border:2px solid rgba(212,160,23,0.4);border-radius:12px;}
+  .faq-item{background:#12121A;border:1px solid rgba(255,255,255,0.06);border-radius:8px;overflow:hidden;margin-bottom:12px;}
+  .faq-btn{width:100%;padding:20px 24px;background:none;border:none;color:#F5F5F0;font-size:15px;font-weight:600;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;font-family:'Inter',sans-serif;}
+  .faq-answer{padding:0 24px 20px;font-size:14px;line-height:1.7;color:#B0B0C0;display:none;}
+  .faq-answer.open{display:block;}
+  .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .footer{border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;color:#4A4A5A;font-size:12px;}
+  @media(max-width:768px){.product-grid{grid-template-columns:1fr!important;}}
+</style>
+</head>
+<body>
+<div class="urgency-bar">⏳ Oferta especial de lançamento — Preço de $47 por apenas <strong style="color:#F0C040">$17</strong>. Válido por tempo limitado.</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="section-label"><span class="section-label-line"></span>Protocolo de Longevidade — Reset 45 Dias<span class="section-label-line"></span></div>
+    <h1 style="font-size:clamp(38px,6vw,72px);font-weight:900;line-height:1.05;margin-bottom:28px;">Você Está Envelhecendo<br><span class="gold">Mais Rápido do que Deveria.</span></h1>
+    <p style="font-size:19px;line-height:1.7;color:#B0B0C0;margin-bottom:16px;max-width:620px;margin-left:auto;margin-right:auto;">O declínio não é inevitável. É uma escolha.<br>Em 45 dias, você pode reverter anos de dano metabólico e recuperar a energia, o foco e o corpo que você merece.</p>
+    <p style="font-size:15px;color:#8A8A9A;margin-bottom:48px;font-style:italic;">— Dr. Santiago Vecina, Médico Nutrólogo</p>
+    <button class="btn-cta" onclick="document.getElementById('oferta').scrollIntoView({behavior:'smooth'})">Quero o Protocolo por $17 →</button>
+    <p style="margin-top:16px;font-size:12px;color:#8A8A9A;">🔒 Pagamento 100% seguro · 7 dias de garantia · Acesso imediato</p>
+  </div>
+</div>
+
+<!-- DOR -->
+<div class="surface" style="padding:80px 24px;">
+  <div style="max-width:800px;margin:0 auto;text-align:center;">
+    <div class="section-label"><span class="section-label-line"></span>O Diagnóstico Real<span class="section-label-line"></span></div>
+    <h2 style="font-size:clamp(28px,4vw,46px);font-weight:700;margin-bottom:48px;line-height:1.2;">Reconhece Algum Desses Sintomas?</h2>
+    <div class="pain-grid">
+      <div class="pain-card"><div style="font-size:28px;margin-bottom:12px;">😴</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Cansaço Crônico</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;">Acorda cansado mesmo dormindo 8 horas. Café já não resolve.</p></div>
+      <div class="pain-card"><div style="font-size:28px;margin-bottom:12px;">🧠</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Névoa Mental</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;">Dificuldade de foco e concentração. Decisões ficaram mais difíceis.</p></div>
+      <div class="pain-card"><div style="font-size:28px;margin-bottom:12px;">🏋️</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Gordura que Não Sai</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;">Especialmente na barriga. Mesmo com dieta e exercício.</p></div>
+      <div class="pain-card"><div style="font-size:28px;margin-bottom:12px;">😤</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Estresse Fora de Controle</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;">Irritabilidade, ansiedade e dificuldade para desligar.</p></div>
+      <div class="pain-card"><div style="font-size:28px;margin-bottom:12px;">💤</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Sono Fragmentado</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;">Acorda no meio da noite. Não atinge sono profundo restaurador.</p></div>
+      <div class="pain-card"><div style="font-size:28px;margin-bottom:12px;">📉</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Performance em Queda</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;">Não é mais o mesmo de 5 anos atrás. Na empresa e em casa.</p></div>
+    </div>
+    <div style="margin-top:48px;padding:28px 32px;background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.3);border-radius:8px;text-align:left;">
+      <p style="font-size:17px;line-height:1.8;color:#B0B0C0;font-style:italic;">"Esses sintomas não são normais da idade. São sinais de que sua biologia está pedindo socorro. A boa notícia é que todos eles são reversíveis com o protocolo correto."</p>
+      <p style="margin-top:16px;font-size:14px;color:#D4A017;font-weight:600;">— Dr. Santiago Vecina</p>
+    </div>
+  </div>
+</div>
+
+<!-- MÉTODO -->
+<div class="container">
+  <div style="text-align:center;margin-bottom:60px;">
+    <div class="section-label"><span class="section-label-line"></span>O Método<span class="section-label-line"></span></div>
+    <h2 style="font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.2;">Os 5 Pilares do <span class="gold">Reset de 45 Dias</span></h2>
+  </div>
+  <div class="pillar"><div class="pillar-num">01</div><div><h3 style="font-size:20px;font-weight:700;color:#F5F5F0;margin-bottom:12px;">Diagnóstico Biológico</h3><p style="font-size:15px;line-height:1.7;color:#B0B0C0;margin-bottom:16px;">Painel completo de exames com alvos de alta performance. Não apenas 'dentro do normal' — mas no quartil superior. Inclui hormônios, marcadores inflamatórios, vitaminas e função mitocondrial.</p><span class="tag">Testosterona Livre</span><span class="tag">IGF-1</span><span class="tag">DHEA-S</span><span class="tag">Cortisol</span><span class="tag">Vitamina D</span><span class="tag">NMN/NAD+</span></div></div>
+  <div class="pillar"><div class="pillar-num">02</div><div><h3 style="font-size:20px;font-weight:700;color:#F5F5F0;margin-bottom:12px;">Nutrição Anti-inflamatória + Jejum Intermitente</h3><p style="font-size:15px;line-height:1.7;color:#B0B0C0;margin-bottom:16px;">Protocolo alimentar baseado em evidências para reduzir o inflammaging. Jejum 16:8 duas vezes por semana para ativar autofagia e queima de gordura visceral.</p><span class="tag">Jejum 16:8</span><span class="tag">Anti-inflamatório</span><span class="tag">Autofagia</span><span class="tag">Composição Corporal</span></div></div>
+  <div class="pillar"><div class="pillar-num">03</div><div><h3 style="font-size:20px;font-weight:700;color:#F5F5F0;margin-bottom:12px;">Treino Híbrido (Força + Cardio)</h3><p style="font-size:15px;line-height:1.7;color:#B0B0C0;margin-bottom:16px;">3 dias de musculação/força para preservar e construir massa muscular. 3 dias de cardio para saúde cardiovascular e VO2 máx. Metas de composição corporal por faixa etária via bioimpedância.</p><span class="tag">Musculação 3x</span><span class="tag">Cardio 3x</span><span class="tag">VO2 Máx</span><span class="tag">Bioimpedância</span></div></div>
+  <div class="pillar"><div class="pillar-num">04</div><div><h3 style="font-size:20px;font-weight:700;color:#F5F5F0;margin-bottom:12px;">Arsenal de Suplementação</h3><p style="font-size:15px;line-height:1.7;color:#B0B0C0;margin-bottom:16px;">Suplementação base + adaptógenos + ativadores de NAD+ + peptídeos. Cada suplemento com dosagem, timing e evidência científica. Stacks específicos por faixa etária.</p><span class="tag">NMN</span><span class="tag">Ashwagandha</span><span class="tag">CoQ10</span><span class="tag">GHK-Cu</span><span class="tag">BPC-157</span><span class="tag">Magnésio</span></div></div>
+  <div class="pillar"><div class="pillar-num">05</div><div><h3 style="font-size:20px;font-weight:700;color:#F5F5F0;margin-bottom:12px;">Ritual do Sono e Gestão do Estresse</h3><p style="font-size:15px;line-height:1.7;color:#B0B0C0;margin-bottom:16px;">Protocolo noturno completo para maximizar o sono profundo e a produção de GH. Técnicas de gestão do cortisol para empresários. Meditação e mindfulness aplicados à alta performance.</p><span class="tag">Sono Profundo</span><span class="tag">GH Noturno</span><span class="tag">Cortisol</span><span class="tag">Mindfulness</span></div></div>
+</div>
+
+<!-- O QUE VOCÊ RECEBE -->
+<div class="surface" style="padding:80px 24px;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <div class="section-label"><span class="section-label-line"></span>O Que Você Recebe<span class="section-label-line"></span></div>
+    <h2 style="font-size:clamp(28px,4vw,46px);font-weight:700;margin-bottom:16px;line-height:1.2;">Tudo Que Você Precisa Para <span class="gold">Transformar Sua Biologia</span></h2>
+    <p style="font-size:16px;color:#B0B0C0;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;">Um sistema completo, não apenas um e-book. Cada componente foi desenhado para funcionar em conjunto.</p>
+    <div class="what-grid" style="text-align:left;">
+      <div class="what-card"><div style="font-size:28px;margin-bottom:12px;">📋</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Protocolo de Longevidade Completo</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;margin-bottom:12px;">O guia principal com todos os 5 pilares detalhados, plano de 45 dias e 6 meses.</p><span style="font-size:12px;color:rgba(212,160,23,0.5);text-decoration:line-through;">Valor: $97</span></div>
+      <div class="what-card"><div style="font-size:28px;margin-bottom:12px;">🧪</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Painel de Exames de Alta Performance</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;margin-bottom:12px;">Lista completa dos exames essenciais com os alvos de longevidade para cada marcador.</p><span style="font-size:12px;color:rgba(212,160,23,0.5);text-decoration:line-through;">Valor: $47</span></div>
+      <div class="what-card"><div style="font-size:28px;margin-bottom:12px;">💊</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Guia de Suplementação por Faixa Etária</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;margin-bottom:12px;">Stacks completos para 30-40, 40-50 e 60-70 anos com dosagens e horários.</p><span style="font-size:12px;color:rgba(212,160,23,0.5);text-decoration:line-through;">Valor: $67</span></div>
+      <div class="what-card"><div style="font-size:28px;margin-bottom:12px;">🏋️</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Plano de Treino Híbrido (45 Dias)</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;margin-bottom:12px;">Semana a semana: musculação 3x + cardio 3x com progressão e metas de bioimpedância.</p><span style="font-size:12px;color:rgba(212,160,23,0.5);text-decoration:line-through;">Valor: $47</span></div>
+      <div class="what-card"><div style="font-size:28px;margin-bottom:12px;">🍽️</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Protocolo de Jejum Intermitente</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;margin-bottom:12px;">Guia completo do jejum 16:8 com janela alimentar, o que comer e como adaptar à rotina.</p><span style="font-size:12px;color:rgba(212,160,23,0.5);text-decoration:line-through;">Valor: $37</span></div>
+      <div class="what-card"><div style="font-size:28px;margin-bottom:12px;">🌙</div><h3 style="font-weight:600;color:#F5F5F0;margin-bottom:8px;font-size:15px;font-family:'Inter',sans-serif;">Ritual do Sono de Alta Performance</h3><p style="font-size:13px;color:#8A8A9A;line-height:1.6;margin-bottom:12px;">Checklist noturno completo, suplementação para sono profundo e ambiente ideal.</p><span style="font-size:12px;color:rgba(212,160,23,0.5);text-decoration:line-through;">Valor: $27</span></div>
+    </div>
+    <div style="margin-top:40px;padding:24px;background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.3);border-radius:8px;">
+      <p style="font-size:15px;color:#B0B0C0;">Valor total: <span style="text-decoration:line-through;color:#8A8A9A;margin-right:8px;">$322</span><strong style="color:#D4A017;font-size:24px;">Hoje por apenas $17</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- OFERTA -->
+<div id="oferta" style="padding:80px 24px;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="product-grid">
+      <div><img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029042428/dB6c66yqaRyD437rv6weov/ebook_mockup-WwgvXLbF5j6gGehMYYbc95.webp" alt="Protocolo de Longevidade" style="width:100%;border-radius:8px;"/></div>
+      <div>
+        <div class="section-label"><span class="section-label-line"></span>A Oferta<span class="section-label-line"></span></div>
+        <h2 style="font-size:clamp(26px,3vw,38px);font-weight:700;margin-bottom:24px;line-height:1.2;">45 Dias Para Mudar<br><span class="gold">Sua Biologia Para Sempre</span></h2>
+        <div class="price-box"><div class="price-old">De $47</div><div class="price-new">$17</div><div class="price-note">Pagamento único · Acesso imediato · Sem assinatura</div></div>
+        <button class="btn-cta" onclick="window.location.href='/obrigado'" style="margin-bottom:24px;">Garantir Meu Acesso Agora →</button>
+        <div style="font-size:13px;color:#B0B0C0;line-height:2;">✓ Acesso imediato após pagamento<br/>✓ 7 dias de garantia incondicional<br/>✓ Funciona em celular, tablet e computador<br/>✓ Suporte por e-mail incluído</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GARANTIA -->
+<div class="surface" style="padding:60px 24px;">
+  <div class="guarantee-box">
+    <div style="font-size:48px;margin-bottom:16px;">🛡️</div>
+    <h2 style="font-size:28px;font-weight:700;margin-bottom:16px;">Garantia de 7 Dias — <span class="gold">Risco Zero</span></h2>
+    <p style="font-size:16px;line-height:1.8;color:#B0B0C0;">Se por qualquer motivo você não ficar 100% satisfeito com o Protocolo de Longevidade, basta enviar um e-mail em até 7 dias após a compra e devolvemos cada centavo do seu investimento. <strong style="color:#F5F5F0;">Sem perguntas. Sem burocracia.</strong></p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div style="padding:80px 24px;">
+  <div style="max-width:700px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-label"><span class="section-label-line"></span>Perguntas Frequentes<span class="section-label-line"></span></div>
+      <h2 style="font-size:clamp(26px,3vw,38px);font-weight:700;">Ainda tem dúvidas?</h2>
+    </div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(0)"><span>Para quem é este protocolo?</span><span style="color:#D4A017;font-size:20px;" id="faq-icon-0">+</span></button><div class="faq-answer" id="faq-0">Para homens entre 30 e 70 anos que sentem que estão envelhecendo mais rápido do que deveriam. Empresários, CEOs, executivos e profissionais de alta performance que não aceitam o declínio como inevitável.</div></div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(1)"><span>Preciso de médico para seguir o protocolo?</span><span style="color:#D4A017;font-size:20px;" id="faq-icon-1">+</span></button><div class="faq-answer" id="faq-1">O protocolo foi desenhado para ser aplicado com acompanhamento médico. Ele serve como guia para você levar ao seu médico e solicitar os exames e ajustes necessários. Para suplementação básica, não é necessário prescrição.</div></div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(2)"><span>Em quanto tempo vejo resultados?</span><span style="color:#D4A017;font-size:20px;" id="faq-icon-2">+</span></button><div class="faq-answer" id="faq-2">O Reset de 45 Dias foi estruturado para que você perceba mudanças na energia e no foco já nas primeiras 2 semanas. Resultados em composição corporal e exames laboratoriais são evidentes ao final dos 45 dias.</div></div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(3)"><span>O protocolo funciona para quem tem mais de 60 anos?</span><span style="color:#D4A017;font-size:20px;" id="faq-icon-3">+</span></button><div class="faq-answer" id="faq-3">Sim. O protocolo é dividido por faixas etárias: 30-40, 40-50 e 60-70 anos. Cada fase tem estratégias específicas de suplementação, treino e modulação hormonal adequadas à sua biologia.</div></div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(4)"><span>Qual é a garantia?</span><span style="color:#D4A017;font-size:20px;" id="faq-icon-4">+</span></button><div class="faq-answer" id="faq-4">Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeito, basta enviar um e-mail e devolvemos 100% do seu investimento. Sem perguntas.</div></div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(5)"><span>Por que apenas $17?</span><span style="color:#D4A017;font-size:20px;" id="faq-icon-5">+</span></button><div class="faq-answer" id="faq-5">Este é um produto de entrada. Meu objetivo é que você experimente a qualidade do meu método antes de investir em programas mais completos. É o menor investimento que você pode fazer na sua saúde.</div></div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(6)"><span>Existe alguma assinatura ou cobrança recorrente?</span><span style="color:#D4A017;font-size:20px;" id="faq-icon-6">+</span></button><div class="faq-answer" id="faq-6">Não. É um pagamento único de $17. Sem assinaturas, sem cobranças futuras, sem surpresas.</div></div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div style="padding:80px 24px;background:linear-gradient(180deg,#12121A 0%,#0A0A0F 100%);text-align:center;">
+  <div style="max-width:600px;margin:0 auto;">
+    <div class="section-label" style="justify-content:center;"><span class="section-label-line"></span>Última Chance<span class="section-label-line"></span></div>
+    <h2 style="font-size:clamp(30px,4vw,50px);font-weight:900;margin-bottom:20px;line-height:1.1;">O Declínio é Opcional.<br><span class="gold">A Decisão é Sua.</span></h2>
+    <p style="font-size:17px;color:#B0B0C0;line-height:1.7;margin-bottom:40px;">Você pode continuar achando que é "normal da idade" — ou pode investir $17 e ter o mapa exato para reverter o processo.</p>
+    <button class="btn-cta" onclick="window.location.href='/obrigado'">Sim, Quero Transformar Minha Biologia →</button>
+    <p style="margin-top:20px;font-size:12px;color:#8A8A9A;">🔒 Pagamento seguro · 7 dias de garantia · Acesso imediato</p>
+  </div>
+</div>
+
+<div class="footer"><p>© 2025 Dr. Santiago Vecina — Todos os direitos reservados.</p><p style="margin-top:8px;">Este material é de caráter informativo e não substitui consulta médica individualizada.</p></div>
+
+<script>
+function toggleFaq(i){
+  var ans=document.getElementById('faq-'+i);
+  var icon=document.getElementById('faq-icon-'+i);
+  var isOpen=ans.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(function(el){el.classList.remove('open');});
+  document.querySelectorAll('[id^="faq-icon-"]').forEach(function(el){el.style.transform='rotate(0deg)';});
+  if(!isOpen){ans.classList.add('open');icon.style.transform='rotate(45deg)';}
+}
+</script>
+</body>
+</html>
