@@ -197,14 +197,14 @@ export default function Vendas() {
               "url(https://assets.cdn.filesafe.space/PMW6fmu3oCfXFYueuN2D/media/6a52b67aeada8c1f454d1699.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.25,
+            opacity: 0.7,
           }}
         />
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: `linear-gradient(180deg, ${BG}20 0%, ${BG}90 100%)`,
+            background: `linear-gradient(180deg, ${BG}0D 0%, ${BG}73 100%)`,
           }}
         />
 
