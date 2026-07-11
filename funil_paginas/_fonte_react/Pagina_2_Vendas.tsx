@@ -194,7 +194,7 @@ export default function Vendas() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "url(https://d2xsxph8kpxj0f.cloudfront.net/310419663029042428/dB6c66yqaRyD437rv6weov/hero_sales-Z2bc39XZ4TAtbZWmt8G4vH.webp)",
+              "url(https://assets.cdn.filesafe.space/PMW6fmu3oCfXFYueuN2D/media/6a52b67aeada8c1f454d1699.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.25,
