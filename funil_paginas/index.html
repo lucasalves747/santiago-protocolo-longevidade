@@ -113,7 +113,19 @@ function handleSubmit(e){
   var btn=e.target.querySelector('button');
   btn.textContent='Liberando acesso...';
   btn.disabled=true;
-  setTimeout(function(){window.location.href='/vendas';},800);
+  var payload={
+    nome:document.getElementById('nome').value,
+    email:document.getElementById('email').value,
+    origem:'Funil Protocolo Longevidade - Guia 7 Exames',
+    pagina:window.location.href
+  };
+  fetch('https://services.leadconnectorhq.com/hooks/PMW6fmu3oCfXFYueuN2D/webhook-trigger/f148d837-2547-4423-902d-f00ece425fec',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).catch(function(){}).finally(function(){
+    window.location.href='/vendas';
+  });
 }
 </script>
 </body>
