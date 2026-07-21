@@ -33,6 +33,8 @@
   .form-label{display:block;font-size:12px;font-weight:600;color:#8A8A9A;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
   .form-input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;color:#F5F5F0;font-size:15px;outline:none;transition:border-color 0.2s;margin-bottom:16px;font-family:'Inter',sans-serif;}
   .form-input:focus{border-color:rgba(212,160,23,0.6);}
+  select.form-input{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23D4A017' d='M1 1l5 5 5-5'/></svg>");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;}
+  select.form-input option{background:#12121A;color:#F5F5F0;}
   .btn-submit{width:100%;padding:16px;background:linear-gradient(135deg,#D4A017,#F0C040);border:none;border-radius:6px;color:#0A0A0F;font-size:15px;font-weight:700;letter-spacing:0.05em;cursor:pointer;text-transform:uppercase;transition:transform 0.15s;font-family:'Inter',sans-serif;}
   .btn-submit:hover{transform:scale(1.02);}
   .btn-submit:active{transform:scale(0.97);}
@@ -74,10 +76,38 @@
         <p style="font-size:13px;color:#8A8A9A;margin-top:8px;">Preencha abaixo e acesse imediatamente</p>
       </div>
       <form onsubmit="handleSubmit(event)">
-        <label class="form-label">Seu Primeiro Nome</label>
-        <input type="text" class="form-input" placeholder="Ex: Carlos" required id="nome"/>
+        <label class="form-label">Seu Nome</label>
+        <input type="text" class="form-input" placeholder="Ex: Maria Silva" required id="nome"/>
         <label class="form-label">Seu Melhor E-mail</label>
         <input type="email" class="form-input" placeholder="seu@email.com" required id="email"/>
+        <label class="form-label">Seu Telefone</label>
+        <input type="tel" class="form-input" placeholder="+55 11 99999-0000" required id="telefone"/>
+        <label class="form-label">Sua Região</label>
+        <input type="text" class="form-input" placeholder="Ex: São Paulo - SP" required id="regiao"/>
+        <label class="form-label">Sua Profissão</label>
+        <select class="form-input" required id="profissao">
+          <option value="" disabled selected>Selecione uma opção</option>
+          <option value="Limpeza residencial e comercial">Limpeza residencial e comercial</option>
+          <option value="Construção civil">Construção civil</option>
+          <option value="Pintura">Pintura</option>
+          <option value="Flooring / pisos">Flooring / pisos</option>
+          <option value="Roofing / telhados">Roofing / telhados</option>
+          <option value="Landscaping / jardinagem">Landscaping / jardinagem</option>
+          <option value="Moving / mudanças">Moving / mudanças</option>
+          <option value="Delivery e transporte">Delivery e transporte</option>
+          <option value="Restaurantes e alimentação">Restaurantes e alimentação</option>
+          <option value="Salões de beleza e estética">Salões de beleza e estética</option>
+          <option value="Real Estate">Real Estate</option>
+          <option value="Property management">Property management</option>
+          <option value="Airbnb / vacation rental">Airbnb / vacation rental</option>
+          <option value="Serviços automotivos">Serviços automotivos</option>
+          <option value="Contabilidade e tax services">Contabilidade e tax services</option>
+          <option value="Seguros">Seguros</option>
+          <option value="Consultoria migratória e documental">Consultoria migratória e documental</option>
+          <option value="Marketing digital">Marketing digital</option>
+          <option value="Eventos e entretenimento">Eventos e entretenimento</option>
+          <option value="E-commerce">E-commerce</option>
+        </select>
         <button type="submit" class="btn-cta btn-submit">Quero o Guia Gratuito →</button>
         <p style="text-align:center;font-size:11px;color:#5A5A6A;margin-top:16px;">🔒 Seus dados estão seguros. Sem spam. Cancele quando quiser.</p>
       </form>
@@ -116,10 +146,14 @@ function handleSubmit(e){
   var payload={
     nome:document.getElementById('nome').value,
     email:document.getElementById('email').value,
+    telefone:document.getElementById('telefone').value,
+    regiao:document.getElementById('regiao').value,
+    profissao:document.getElementById('profissao').value,
+    tags:['lead','site','protocolo-longevidade'],
     origem:'Funil Protocolo Longevidade - Guia 7 Exames',
     pagina:window.location.href
   };
-  fetch('https://services.leadconnectorhq.com/hooks/PMW6fmu3oCfXFYueuN2D/webhook-trigger/f148d837-2547-4423-902d-f00ece425fec',{
+  fetch('https://id-preview--49b3064f-d9ff-44af-b75b-aef783c91466.lovable.app/api/public/contatos/ck_9e75a568_9e75a568df396715ac5ad64b3e04712ff28a291ec21a9054cce5e945653c057f',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify(payload)
