@@ -107,7 +107,12 @@
           <option value="Marketing digital">Marketing digital</option>
           <option value="Eventos e entretenimento">Eventos e entretenimento</option>
           <option value="E-commerce">E-commerce</option>
+          <option value="Outro">Outro</option>
         </select>
+        <div id="outro-wrap" style="display:none;">
+          <label class="form-label">Outro</label>
+          <input type="text" class="form-input" placeholder="Digite sua profissão" id="profissao_outro"/>
+        </div>
         <button type="submit" class="btn-cta btn-submit">Quero o Guia Gratuito →</button>
         <p style="text-align:center;font-size:11px;color:#5A5A6A;margin-top:16px;">🔒 Seus dados estão seguros. Sem spam. Cancele quando quiser.</p>
       </form>
@@ -138,6 +143,14 @@
 </div></div>
 <div class="footer"><p>© 2025 Dr. Santiago Vecina — Todos os direitos reservados.</p><p style="margin-top:8px;">Este material é de caráter informativo e não substitui consulta médica individualizada.</p></div>
 <script>
+document.getElementById('profissao').addEventListener('change',function(){
+  var isOutro=this.value==='Outro';
+  var wrap=document.getElementById('outro-wrap');
+  var outro=document.getElementById('profissao_outro');
+  wrap.style.display=isOutro?'block':'none';
+  outro.required=isOutro;
+  if(!isOutro){outro.value='';}
+});
 function handleSubmit(e){
   e.preventDefault();
   var btn=e.target.querySelector('button');
@@ -148,7 +161,7 @@ function handleSubmit(e){
     email:document.getElementById('email').value,
     telefone:document.getElementById('telefone').value,
     regiao:document.getElementById('regiao').value,
-    profissao:document.getElementById('profissao').value,
+    profissao:document.getElementById('profissao').value==='Outro'?document.getElementById('profissao_outro').value:document.getElementById('profissao').value,
     tags:['lead','site','protocolo-longevidade'],
     origem:'Funil Protocolo Longevidade - Guia 7 Exames',
     pagina:window.location.href
