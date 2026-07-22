@@ -153,11 +153,23 @@ function handleSubmit(e){
     origem:'Funil Protocolo Longevidade - Guia 7 Exames',
     pagina:window.location.href
   };
-  fetch('https://id-preview--49b3064f-d9ff-44af-b75b-aef783c91466.lovable.app/api/public/contatos/ck_9e75a568_9e75a568df396715ac5ad64b3e04712ff28a291ec21a9054cce5e945653c057f',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(payload)
-  }).catch(function(){}).finally(function(){
+  var payloadLC={
+    nome:payload.nome,
+    email:payload.email,
+    telefone:payload.telefone
+  };
+  Promise.allSettled([
+    fetch('https://contact-blossom-39.lovable.app/api/public/contatos/ck_b2347bab_b2347bab09fcc7d151574940da5a9f2637813d0d88e8abe027f4d54496311901',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    }),
+    fetch('https://services.leadconnectorhq.com/hooks/PMW6fmu3oCfXFYueuN2D/webhook-trigger/PAhX5vo9SRwZtFyUOvRo',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payloadLC)
+    })
+  ]).finally(function(){
     window.location.href='/vendas';
   });
 }
