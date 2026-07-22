@@ -183,7 +183,7 @@ function handleSubmit(e){
       body:JSON.stringify(payloadLC)
     })
   ]).finally(function(){
-    window.location.href='/vendas';
+    window.location.href='/vendas?email='+encodeURIComponent(payload.email);
   });
 }
 </script>

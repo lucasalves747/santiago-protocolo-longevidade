@@ -47,9 +47,31 @@
   .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
   .footer{border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;color:#4A4A5A;font-size:12px;}
   @media(max-width:768px){.product-grid{grid-template-columns:1fr!important;}}
+  .modal-overlay{position:fixed;inset:0;background:rgba(10,10,15,0.85);backdrop-filter:blur(6px);z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity 0.3s ease;}
+  .modal-overlay.open{display:flex;opacity:1;}
+  .modal-card{background:#12121A;border:1px solid rgba(212,160,23,0.4);border-radius:14px;max-width:440px;width:100%;padding:44px 36px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.5);transform:translateY(16px) scale(0.97);transition:transform 0.3s cubic-bezier(0.23,1,0.32,1);}
+  .modal-overlay.open .modal-card{transform:translateY(0) scale(1);}
+  .modal-icon{width:64px;height:64px;margin:0 auto 24px;border-radius:50%;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.4);display:flex;align-items:center;justify-content:center;font-size:30px;}
+  .modal-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:#F5F5F0;margin-bottom:14px;line-height:1.25;}
+  .modal-text{font-size:15px;line-height:1.7;color:#B0B0C0;margin-bottom:28px;}
+  .modal-email{color:#D4A017;font-weight:600;word-break:break-all;}
+  .modal-btn{width:100%;padding:16px;background:linear-gradient(135deg,#D4A017,#F0C040);border:none;border-radius:6px;color:#0A0A0F;font-size:15px;font-weight:700;letter-spacing:0.04em;cursor:pointer;text-transform:uppercase;transition:transform 0.15s;font-family:'Inter',sans-serif;}
+  .modal-btn:hover{transform:scale(1.02);}
+  .modal-btn:active{transform:scale(0.97);}
 </style>
 </head>
 <body>
+
+<!-- POP-UP DE CONFIRMAÇÃO DE E-MAIL -->
+<div class="modal-overlay" id="emailModal">
+  <div class="modal-card">
+    <div class="modal-icon">📧</div>
+    <h2 class="modal-title">Seus arquivos estão a caminho!</h2>
+    <p class="modal-text">Enviamos um e-mail com os arquivos do seu guia para <span class="modal-email" id="modalEmail">seu e-mail</span>.<br/>Confira sua caixa de entrada (e a pasta de spam).</p>
+    <button class="modal-btn" onclick="closeEmailModal()">Continuar →</button>
+  </div>
+</div>
+
 <div class="urgency-bar">⏳ Oferta especial de lançamento — Preço de $47 por apenas <strong style="color:#F0C040">$17</strong>. Válido por tempo limitado.</div>
 
 <!-- HERO -->
@@ -175,6 +197,19 @@
 <div class="footer"><p>© 2025 Dr. Santiago Vecina — Todos os direitos reservados.</p><p style="margin-top:8px;">Este material é de caráter informativo e não substitui consulta médica individualizada.</p></div>
 
 <script>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var email=params.get('email');
+  if(email){
+    document.getElementById('modalEmail').textContent=email;
+    document.getElementById('emailModal').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+})();
+function closeEmailModal(){
+  document.getElementById('emailModal').classList.remove('open');
+  document.body.style.overflow='';
+}
 function toggleFaq(i){
   var ans=document.getElementById('faq-'+i);
   var icon=document.getElementById('faq-icon-'+i);
